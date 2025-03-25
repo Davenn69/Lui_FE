@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lui_fe/core/utils/navigation_service.dart';
 
 class GettingStartedScreen extends StatelessWidget{
   const GettingStartedScreen({super.key});
@@ -57,7 +58,7 @@ class GettingStartedScreen extends StatelessWidget{
               ),
               child: ElevatedButton(
                   onPressed: (){
-
+                    Navigator.of(context).push(NavigationService.navigationFromGettingToRegister());
                   },
                   child: Text(
                     "Get Started"
@@ -79,7 +80,7 @@ class GettingStartedScreen extends StatelessWidget{
                         fontWeight: FontWeight.bold
                       ),
                       recognizer: TapGestureRecognizer()..onTap = (){
-                        print("Go to the next screen");
+                        Navigator.of(context).push(NavigationService.navigationFromGettingToLogin());
                       }
                     )
                   ]
