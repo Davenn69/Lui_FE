@@ -92,6 +92,7 @@ class RegisterScreen extends ConsumerWidget{
                           if(!formKey.currentState!.validate()){
 
                           }
+                          Navigator.of(context).pushReplacementNamed("/home");
                         }, child: Text("Register")),
                       ),
                     ),
