@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:lui_fe/features/auth/presentation/screens/register_screen.dart';
 
 import '../../features/auth/presentation/screens/login_screen.dart';
-import '../../features/getting_started/presentation/screens/getting_started_screen.dart';
+import '../../features/auth/presentation/screens/getting_started_screen.dart';
 
 class NavigationService{
   static Route navigationFromSplashToGettingStarted(){
