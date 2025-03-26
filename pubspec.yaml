@@ -37,6 +37,12 @@ dependencies:
   google_fonts: ^6.2.1
   riverpod: ^2.6.1
   flutter_riverpod: ^2.6.1
+  intl: ^0.20.2
+  file_picker: ^9.2.1
+  path: ^1.9.0
+  date_picker_plus: ^4.2.0
+  modal_bottom_sheet: ^3.0.0
+  fl_chart: ^0.70.2
 
 dev_dependencies:
   flutter_test:

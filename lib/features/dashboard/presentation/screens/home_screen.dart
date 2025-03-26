@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lui_fe/core/utils/navigation_service.dart';
 import 'package:lui_fe/features/dashboard/presentation/widgets/dashboard_widgets.dart';
+import 'package:lui_fe/features/dashboard/presentation/widgets/home_widgets.dart';
 
+import '../../../statistic/presentation/screens/statistic_screen.dart';
 import '../providers/dashboard_providers.dart';
 import 'dashboard_screen.dart';
 
@@ -17,7 +19,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>{
 
   final List<Widget> _pages = [
     DashboardScreen(),
-    DashboardScreen(),
+    StatisticScreen(),
     DashboardScreen(),
     DashboardScreen()
   ];
@@ -48,7 +50,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>{
         ),
         floatingActionButton: selectedPageIndex == 0 ? FloatingActionButton(
           onPressed: (){
-            Navigator.of(context).push(NavigationService.navigationFromDashboardToAddExpense());
+            showModalForPickingType(context);
           },
           backgroundColor: Colors.green,
           child: Icon(Icons.add, size: 32, color: Colors.white),
