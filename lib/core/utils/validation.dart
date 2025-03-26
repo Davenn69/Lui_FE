@@ -16,7 +16,7 @@ String? validatePassword(String? value){
     return "Password cannot be null";
   }
 
-  if(value!.length < 8){
+  if(value.length < 8){
     return "Password must be at least 8 characters";
   }
 
@@ -28,7 +28,7 @@ String? validateConfirmPassword(String? value, String? compareValue){
     return "Password cannot be null";
   }
 
-  if(value!.length < 8){
+  if(value.length < 8){
     return "Password must be at least 8 characters";
   }
 
