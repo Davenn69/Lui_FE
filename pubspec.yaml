@@ -44,7 +44,10 @@ dependencies:
   modal_bottom_sheet: ^3.0.0
   fl_chart: ^0.70.2
   flutter_carousel_widget: ^3.1.0
-
+  dio: ^5.8.0+1
+  dartz: ^0.10.1
+  awesome_dialog: ^3.2.1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

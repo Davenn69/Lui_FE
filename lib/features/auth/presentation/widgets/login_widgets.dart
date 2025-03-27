@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lui_fe/features/auth/presentation/providers/login_providers.dart';
+import 'package:lui_fe/features/auth/presentation/providers/login_provider.dart';
 
 import '../../../../core/utils/validation.dart';
 

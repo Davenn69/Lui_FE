@@ -1,9 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lui_fe/features/auth/presentation/providers/register_providers.dart';
+import 'package:lui_fe/features/auth/presentation/providers/register_provider.dart';
 
 import '../../../../core/utils/validation.dart';
+
+ String? _validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Email is required.';
+    }
+    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    if (!emailRegex.hasMatch(value)) {
+      return 'Enter valid email.';
+    }
+
+    return null;
+  }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password is required.';
+    }
+    if (value.length < 6 || value.length > 20) {
+      return 'Password must be 6-20 characters.';
+    }
+    final regex = RegExp(r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+{}:;<>,.?/~`\[\]\\-]).{6,20}$');
+  
+    if (!regex.hasMatch(value)) {
+      return 'Password must contain 1 number and \n1 special character';
+    }
+    
+    return null;
+  }
+
+  String? _validateConfirmPassword(String? value, TextEditingController passwordController) {
+    if (value == null || value.isEmpty) {
+      return 'Confirm Password is required';
+    }
+    if (value != passwordController.text) {
+      return 'Passwords do not match';
+    }
+
+    return null;
+  }
+
+Widget showNameTextFormField(WidgetRef ref, TextEditingController controller){
+  return TextFormField(
+    style: TextStyle(
+      fontSize: 16
+    ),
+    controller : controller,
+    keyboardType: TextInputType.emailAddress,
+    inputFormatters: [
+      FilteringTextInputFormatter.deny(RegExp(r'\s'))
+    ],
+    decoration: InputDecoration(
+      hintText: "Enter your name",
+        hintStyle: TextStyle(
+            fontSize: 16
+        )
+    ),
+  );
+}
 
 Widget showEmailTextFormField(WidgetRef ref, TextEditingController controller){
   return TextFormField(
@@ -12,7 +70,7 @@ Widget showEmailTextFormField(WidgetRef ref, TextEditingController controller){
     ),
     controller : controller,
     keyboardType: TextInputType.emailAddress,
-    validator : validateEmail,
+    validator : (value) => _validateEmail(value),
     inputFormatters: [
       FilteringTextInputFormatter.deny(RegExp(r'\s'))
     ],
@@ -34,7 +92,7 @@ Widget showPasswordTextFormField(WidgetRef ref, TextEditingController controller
     controller : controller,
     keyboardType: TextInputType.visiblePassword,
     obscureText: isVisible,
-    validator : validatePassword,
+    validator : (value) => _validatePassword(value),
     inputFormatters: [
       FilteringTextInputFormatter.deny(RegExp(r'\s'))
     ],
@@ -62,7 +120,7 @@ Widget showConfirmPasswordTextFormField(WidgetRef ref, TextEditingController con
     controller : controller,
     keyboardType: TextInputType.visiblePassword,
     obscureText: isVisible,
-    validator : (value)=>validateConfirmPassword(value, compareValue),
+    validator : (value)=> _validateConfirmPassword(value, controller),
     inputFormatters: [
       FilteringTextInputFormatter.deny(RegExp(r'\s'))
     ],
