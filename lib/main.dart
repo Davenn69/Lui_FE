@@ -2,16 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:lui_fe/features/auth/presentation/screens/register_screen.dart';
 import 'package:lui_fe/features/auth/presentation/screens/splash_screen.dart';
 import 'package:lui_fe/features/dashboard/presentation/screens/dashboard_screen.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'features/auth/presentation/screens/login_screen.dart';
 import 'features/auth/presentation/screens/getting_started_screen.dart';
 import 'features/dashboard/presentation/screens/home_screen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  final appDir = await getApplicationDocumentsDirectory();
+
+  await Hive.initFlutter(appDir.path);
+  final collection = await BoxCollection.open("localStorage", {'sessionBox'}, path: appDir.path);
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown

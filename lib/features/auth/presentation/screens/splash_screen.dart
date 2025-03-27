@@ -1,17 +1,22 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
+import 'package:lui_fe/core/session/presentation/providers/providers.dart';
 import 'package:lui_fe/core/utils/navigation_service.dart';
+import 'package:path_provider/path_provider.dart';
 
-class SplashScreen extends StatefulWidget{
+class SplashScreen extends ConsumerStatefulWidget{
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => SplashScreenState();
+  ConsumerState<SplashScreen> createState() => SplashScreenState();
 }
 
-class SplashScreenState extends State<SplashScreen>{
+class SplashScreenState extends ConsumerState<SplashScreen>{
+
 
   navigateAfterTimer(){
     Timer(Duration(seconds: 2), (){
@@ -24,8 +29,14 @@ class SplashScreenState extends State<SplashScreen>{
   }
 
   @override
-  void initState() {
+  void initState() async{
     super.initState();
+    final appDir = await getApplicationDocumentsDirectory();
+    final collection = await BoxCollection.open("localStorage", {'sessionBox'}, path: appDir.path);
+
+    final sessionBox = await collection.openBox<Map>('sessionBox');
+
+    ref.read(hiveBoxProvider.notifier).state = sessionBox;
     navigateAfterTimer();
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lui_fe/core/network/dio_client.dart';
 import 'package:lui_fe/features/auth/business/repositories/auth_repository.dart';
+import 'package:lui_fe/features/auth/business/usecases/login_usecase.dart';
 import 'package:lui_fe/features/auth/business/usecases/register_usecase.dart';
 import 'package:lui_fe/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:lui_fe/features/auth/data/repositories/auth_repository_impl.dart';
@@ -26,5 +27,10 @@ final authRepositoryProvider = Provider<AuthRepository>((ref) {
 final registerUsecaseProvider = Provider<RegisterUsecase>((ref) {
   final repository = ref.read(authRepositoryProvider);
   return RegisterUsecase(repository);
+});
+
+final loginUsecaseProvider = Provider<LoginUsecase>((ref){
+  final repository = ref.watch(authRepositoryProvider);
+  return LoginUsecase(repository);
 });
 
