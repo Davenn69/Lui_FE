@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lui_fe/core/utils/navigation_service.dart';
 import 'package:lui_fe/features/dashboard/presentation/widgets/dashboard_widgets.dart';
+import 'package:lui_fe/features/dashboard/presentation/widgets/home_widgets.dart';
 
+import '../../../statistic/presentation/screens/statistic_screen.dart';
+import '../../../wallet/presentation/screens/wallet_screen.dart';
 import '../providers/dashboard_providers.dart';
 import 'dashboard_screen.dart';
 
@@ -17,9 +20,9 @@ class HomeScreenState extends ConsumerState<HomeScreen>{
 
   final List<Widget> _pages = [
     DashboardScreen(),
-    DashboardScreen(),
-    DashboardScreen(),
-    DashboardScreen()
+    StatisticScreen(),
+    WalletScreen(),
+    // DashboardScreen()
   ];
 
   @override
@@ -36,7 +39,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>{
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: "Statistics"),
           BottomNavigationBarItem(icon: Icon(Icons.wallet), label: "Wallet"),
-          BottomNavigationBarItem(icon: Icon(Icons.person_2_outlined), label: "Profile")
+          // BottomNavigationBarItem(icon: Icon(Icons.person_2_outlined), label: "Profile")
         ],
         onTap: onItemTapped,
           selectedItemColor: Colors.green,
@@ -48,7 +51,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>{
         ),
         floatingActionButton: selectedPageIndex == 0 ? FloatingActionButton(
           onPressed: (){
-            Navigator.of(context).push(NavigationService.navigationFromDashboardToAddExpense());
+            showModalForPickingType(context);
           },
           backgroundColor: Colors.green,
           child: Icon(Icons.add, size: 32, color: Colors.white),

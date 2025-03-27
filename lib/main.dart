@@ -5,10 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lui_fe/features/auth/presentation/screens/register_screen.dart';
 import 'package:lui_fe/features/auth/presentation/screens/splash_screen.dart';
 import 'package:lui_fe/features/dashboard/presentation/screens/dashboard_screen.dart';
+import 'package:lui_fe/features/statistic/presentation/screens/statistic_screen.dart';
 
 import 'features/auth/presentation/screens/login_screen.dart';
 import 'features/auth/presentation/screens/getting_started_screen.dart';
 import 'features/dashboard/presentation/screens/home_screen.dart';
+import 'features/wallet/presentation/screens/wallet_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,7 +53,9 @@ void main() {
           "/getting_started" : (context) => GettingStartedScreen(),
           "/register" : (context) => RegisterScreen(),
           '/login' : (context) => LoginScreen(),
-          '/home' : (context) => HomeScreen()
+          '/home' : (context) => HomeScreen(),
+          '/statistic' : (context) => StatisticScreen(),
+          '/wallet' : (context) => WalletScreen()
         },
       ),
     ));
