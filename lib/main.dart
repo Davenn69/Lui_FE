@@ -10,6 +10,7 @@ import 'package:lui_fe/features/statistic/presentation/screens/statistic_screen.
 import 'features/auth/presentation/screens/login_screen.dart';
 import 'features/auth/presentation/screens/getting_started_screen.dart';
 import 'features/dashboard/presentation/screens/home_screen.dart';
+import 'features/wallet/presentation/screens/wallet_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,7 +54,8 @@ void main() {
           "/register" : (context) => RegisterScreen(),
           '/login' : (context) => LoginScreen(),
           '/home' : (context) => HomeScreen(),
-          '/statistic' : (context) => StatisticScreen()
+          '/statistic' : (context) => StatisticScreen(),
+          '/wallet' : (context) => WalletScreen()
         },
       ),
     ));

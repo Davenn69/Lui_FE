@@ -205,14 +205,14 @@ class DashboardScreenState extends ConsumerState<DashboardScreen>{
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: <Widget>[
-                  transactionCard("Upwork", "Today", 850, "income"),
-                  transactionCard("Transfer", "Yesterday", 85, "expenses"),
-                  transactionCard("Paypal", "Jan 30, 2022", 1406, "income"),
-                  transactionCard("Youtube", "Jan 16, 2022", 11, "expenses"),
-                  transactionCard("Upwork", "Today", 850, "income"),
-                  transactionCard("Transfer", "Yesterday", 85, "expenses"),
-                  transactionCard("Paypal", "Jan 30, 2022", 1406, "income"),
-                  transactionCard("Youtube", "Jan 16, 2022", 11, "expenses"),
+                  transactionCard(context, "Upwork", "Today", 850, "income"),
+                  transactionCard(context,"Transfer", "Yesterday", 85, "expenses"),
+                  transactionCard(context,"Paypal", "Jan 30, 2022", 1406, "income"),
+                  transactionCard(context,"Youtube", "Jan 16, 2022", 11, "expenses"),
+                  transactionCard(context,"Upwork", "Today", 850, "income"),
+                  transactionCard(context,"Transfer", "Yesterday", 85, "expenses"),
+                  transactionCard(context,"Paypal", "Jan 30, 2022", 1406, "income"),
+                  transactionCard(context,"Youtube", "Jan 16, 2022", 11, "expenses"),
                 ],
               ),
             )
