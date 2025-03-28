@@ -12,9 +12,18 @@ class AuthRepositoryImpl extends AuthRepository {
   AuthRepositoryImpl({ required this.remoteDataSource });
   
   @override
-  Future<Either<Failure, LoginResponse>> login({required LoginParams loginParams}) {
-    // TODO: implement login
-    throw UnimplementedError();
+  Future<Either<Failure, LoginResponse>> login({required LoginParams loginParams}) async {
+    try{
+      print("📤 Sending data: ${loginParams.email} ${loginParams.password}");
+      final response = await remoteDataSource.login(loginParams: loginParams);
+      print('Response for Login: $response');
+      return Right(response);
+    }catch(e){
+      if(e is ServerFailure){
+        return Left(ServerFailure(statusCode : e.statusCode, errorData: e.errorData, errorMessage: e.errorMessage));
+      }
+      return Left(ServerFailure(statusCode: 500, errorData: null, errorMessage: "Unknown error occurred"));
+    }
   }
   
   @override

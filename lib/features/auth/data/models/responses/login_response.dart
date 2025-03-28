@@ -13,7 +13,7 @@ class LoginResponse {
     this.errors,
   });
 
-  factory LoginResponse.froJson(Map<String, dynamic> json) {
+  factory LoginResponse.fromJson(Map<String, dynamic> json) {
     return LoginResponse(
       success: json['success'], 
       statusCode: json['statusCode'], 
