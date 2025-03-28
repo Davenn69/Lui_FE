@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lui_fe/features/dashboard/presentation/widgets/dashboard_widgets.dart';
 
-import '../providers/dashboard_providers.dart';
+import '../providers/dashboard_provider.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget{
   const DashboardScreen({super.key});
@@ -12,6 +12,14 @@ class DashboardScreen extends ConsumerStatefulWidget{
 }
 
 class DashboardScreenState extends ConsumerState<DashboardScreen>{
+
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(() {
+      ref.read(dashboardProvider.notifier).getUser(userId);
+    });
+  }
 
   final List<Widget> _pages = [
     DashboardScreen(),

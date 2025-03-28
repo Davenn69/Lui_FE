@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lui_fe/core/errors/failure.dart';
 import 'package:lui_fe/core/params/params.dart';
 import 'package:lui_fe/core/utils/error_mapper.dart';
 import 'package:lui_fe/features/auth/business/usecases/register_usecase.dart';

@@ -6,7 +6,7 @@ import 'package:lui_fe/features/dashboard/presentation/widgets/home_widgets.dart
 
 import '../../../statistic/presentation/screens/statistic_screen.dart';
 import '../../../wallet/presentation/screens/wallet_screen.dart';
-import '../providers/dashboard_providers.dart';
+import '../providers/dashboard_provider.dart';
 import 'dashboard_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget{
