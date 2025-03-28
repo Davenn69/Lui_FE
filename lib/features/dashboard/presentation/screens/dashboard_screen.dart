@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lui_fe/features/dashboard/presentation/widgets/dashboard_widgets.dart';
 
-import '../providers/dashboard_providers.dart';
+import '../providers/dashboard_provider.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget{
   const DashboardScreen({super.key});
@@ -12,6 +12,14 @@ class DashboardScreen extends ConsumerStatefulWidget{
 }
 
 class DashboardScreenState extends ConsumerState<DashboardScreen>{
+
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(() {
+      ref.read(dashboardProvider.notifier).getUser(userId);
+    });
+  }
 
   final List<Widget> _pages = [
     DashboardScreen(),
@@ -205,14 +213,14 @@ class DashboardScreenState extends ConsumerState<DashboardScreen>{
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: <Widget>[
-                  transactionCard("Upwork", "Today", 850, "income"),
-                  transactionCard("Transfer", "Yesterday", 85, "expenses"),
-                  transactionCard("Paypal", "Jan 30, 2022", 1406, "income"),
-                  transactionCard("Youtube", "Jan 16, 2022", 11, "expenses"),
-                  transactionCard("Upwork", "Today", 850, "income"),
-                  transactionCard("Transfer", "Yesterday", 85, "expenses"),
-                  transactionCard("Paypal", "Jan 30, 2022", 1406, "income"),
-                  transactionCard("Youtube", "Jan 16, 2022", 11, "expenses"),
+                  transactionCard(context, "Upwork", "Today", 850, "income"),
+                  transactionCard(context,"Transfer", "Yesterday", 85, "expenses"),
+                  transactionCard(context,"Paypal", "Jan 30, 2022", 1406, "income"),
+                  transactionCard(context,"Youtube", "Jan 16, 2022", 11, "expenses"),
+                  transactionCard(context,"Upwork", "Today", 850, "income"),
+                  transactionCard(context,"Transfer", "Yesterday", 85, "expenses"),
+                  transactionCard(context,"Paypal", "Jan 30, 2022", 1406, "income"),
+                  transactionCard(context,"Youtube", "Jan 16, 2022", 11, "expenses"),
                 ],
               ),
             )

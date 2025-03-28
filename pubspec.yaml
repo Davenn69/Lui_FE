@@ -37,6 +37,13 @@ dependencies:
   google_fonts: ^6.2.1
   riverpod: ^2.6.1
   flutter_riverpod: ^2.6.1
+  intl: ^0.20.2
+  file_picker: ^9.2.1
+  path: ^1.9.0
+  date_picker_plus: ^4.2.0
+  modal_bottom_sheet: ^3.0.0
+  fl_chart: ^0.70.2
+  flutter_carousel_widget: ^3.1.0
   dio: ^5.8.0+1
   dartz: ^0.10.1
   awesome_dialog: ^3.2.1
