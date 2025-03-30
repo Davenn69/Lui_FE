@@ -16,9 +16,6 @@ class DashboardScreenState extends ConsumerState<DashboardScreen>{
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      ref.read(dashboardProvider.notifier).getUser(userId);
-    });
   }
 
   final List<Widget> _pages = [

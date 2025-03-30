@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:lui_fe/core/session/presentation/providers/providers.dart';
 import 'package:lui_fe/core/utils/navigation_service.dart';
 import 'package:path_provider/path_provider.dart';
@@ -31,12 +32,12 @@ class SplashScreenState extends ConsumerState<SplashScreen>{
   @override
   void initState() async{
     super.initState();
-    final appDir = await getApplicationDocumentsDirectory();
-    final collection = await BoxCollection.open("localStorage", {'sessionBox'}, path: appDir.path);
+    WidgetsFlutterBinding.ensureInitialized();
+    await Hive.initFlutter();
 
-    final sessionBox = await collection.openBox<Map>('sessionBox');
 
-    ref.read(hiveBoxProvider.notifier).state = sessionBox;
+    await Hive.openBox<Map>('sessionBox');
+
     navigateAfterTimer();
   }
 

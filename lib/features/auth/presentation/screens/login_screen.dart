@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lui_fe/core/params/params.dart';
+import 'package:lui_fe/core/session/business/entity/session_entity.dart';
 import 'package:lui_fe/core/session/presentation/providers/providers.dart';
 import 'package:lui_fe/core/utils/navigation_service.dart';
+import 'package:lui_fe/features/auth/presentation/providers/providers.dart';
 
 import '../../../../core/widgets/show_dialog.dart';
 import '../providers/auth_provider.dart';
@@ -24,7 +26,8 @@ class LoginScreen extends ConsumerWidget{
 
       if (!next.isLoading && next.error == null) {
         ShowDialog.showSuccessDialog(context: context, title: "Success", description: "Login is successful", onOkPressed: (){Navigator.of(context).push(NavigationService.navigationFromLoginToHome());});
-        ref.read(saveSessionUsecaseProvider).call(next.loginResponse!.data?['accessToken'], next.loginResponse!.data?['refreshToken']);
+        final params = LoginParams(email: emailController.text.trim(), password: passwordController.text);
+        ref.read(authProvider.notifier).login(params);
       }
     });
 

@@ -1,3 +1,4 @@
+import 'package:lui_fe/core/session/business/entity/session_entity.dart';
 import 'package:lui_fe/core/session/business/repositories/session_repository.dart';
 
 class SaveSessionUsecase{
@@ -5,7 +6,7 @@ class SaveSessionUsecase{
 
   SaveSessionUsecase(this.repository);
 
-  Future<void> call(String accessToken, String refreshToken)async{
-    await repository.saveSession(accessToken, refreshToken);
+  Future<void> execute(SessionEntity session) async {
+    await repository.saveSession(session);
   }
 }
