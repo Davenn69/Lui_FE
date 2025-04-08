@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lui_fe/core/session/presentation/providers/providers.dart';
 import 'package:lui_fe/features/dashboard/presentation/widgets/dashboard_widgets.dart';
 
 import '../providers/dashboard_providers.dart';
@@ -23,6 +24,8 @@ class DashboardScreenState extends ConsumerState<DashboardScreen>{
   @override
   Widget build(BuildContext context){
     final selectedPageIndex = ref.watch(selectedPageIndexProvider);
+    final session = ref.watch(sessionData);
+    print("session session $session");
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -57,7 +60,7 @@ class DashboardScreenState extends ConsumerState<DashboardScreen>{
                         ),
                       ),
                       Text(
-                          "Enjelin Morgeana",
+                          "${session?['user']['name'] ?? "null"}",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,

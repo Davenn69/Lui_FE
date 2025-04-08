@@ -1,7 +1,8 @@
 import 'package:hive/hive.dart';
 
 abstract class AuthLocalDataSource{
-  Future<void> saveSession(String accessToken, String refreshToken);
+  Future<void> saveSession(String accessToken, String refreshToken, Map<dynamic, dynamic> user);
+  Future<Map?> getSession();
 }
 
 class AuthLocalDataSourceImpl implements AuthLocalDataSource{
@@ -11,11 +12,16 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource{
   AuthLocalDataSourceImpl({required this.sessionBox});
 
   @override
-  Future<void> saveSession(String accessToken, String refreshToken)async {
+  Future<void> saveSession(String accessToken, String refreshToken, Map<dynamic, dynamic> user)async {
     await sessionBox?.put("sessionData", {
       "accessToken" : accessToken,
-      "refreshToken" : refreshToken
+      "refreshToken" : refreshToken,
+      "user" : user,
     });
   }
 
+  @override
+  Future<Map?> getSession()async{
+    return await sessionBox?.get("sessionData");
+  }
 }

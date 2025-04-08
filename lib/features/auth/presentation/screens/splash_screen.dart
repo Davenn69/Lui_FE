@@ -18,7 +18,7 @@ class SplashScreen extends ConsumerStatefulWidget{
 class SplashScreenState extends ConsumerState<SplashScreen>{
 
 
-  navigateAfterTimer(){
+  navigateToLogin(){
     Timer(Duration(seconds: 2), (){
       if(mounted){
         if(ModalRoute.of(context)?.isCurrent == true){
@@ -28,16 +28,41 @@ class SplashScreenState extends ConsumerState<SplashScreen>{
     });
   }
 
-  @override
-  void initState() async{
-    super.initState();
+  navigateToHome(){
+    Timer(Duration(seconds: 2), (){
+      if(mounted){
+        if(ModalRoute.of(context)?.isCurrent == true){
+          Navigator.of(context).pushReplacement(NavigationService.navigationFromLoginToHome());
+        }
+      }
+    });
+  }
+
+  Future<void> sessionInitialization()async{
     final appDir = await getApplicationDocumentsDirectory();
     final collection = await BoxCollection.open("localStorage", {'sessionBox'}, path: appDir.path);
 
     final sessionBox = await collection.openBox<Map>('sessionBox');
 
     ref.read(hiveBoxProvider.notifier).state = sessionBox;
-    navigateAfterTimer();
+
+    final data = await ref.read(getSessionUsecaseProvider).call();
+    print("session Key $data");
+    
+    ref.read(sessionData.notifier).state = data;
+
+    if(data!=null && data.isNotEmpty){
+      navigateToHome();
+      return;
+    }
+
+    navigateToLogin();
+  }
+
+  @override
+  void initState(){
+    super.initState();
+    sessionInitialization();
   }
 
   @override

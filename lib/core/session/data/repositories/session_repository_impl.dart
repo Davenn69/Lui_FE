@@ -8,8 +8,13 @@ class SessionRepositoryImpl implements SessionRepository{
   SessionRepositoryImpl(this.repository);
 
   @override
-  Future<void> saveSession(String accessToken, String refreshToken) async {
-    await repository.saveSession(accessToken, refreshToken);
+  Future<void> saveSession(String accessToken, String refreshToken, Map<dynamic, dynamic> user) async {
+    await repository.saveSession(accessToken, refreshToken, user);
+  }
+
+  @override
+  Future<Map?> getSession() async{
+    return await repository.getSession();
   }
 
 }

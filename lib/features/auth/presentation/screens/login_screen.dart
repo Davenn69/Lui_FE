@@ -24,7 +24,8 @@ class LoginScreen extends ConsumerWidget{
 
       if (!next.isLoading && next.error == null) {
         ShowDialog.showSuccessDialog(context: context, title: "Success", description: "Login is successful", onOkPressed: (){Navigator.of(context).push(NavigationService.navigationFromLoginToHome());});
-        ref.read(saveSessionUsecaseProvider).call(next.loginResponse!.data?['accessToken'], next.loginResponse!.data?['refreshToken']);
+        print("here here ${next.loginResponse!.data}");
+        ref.read(saveSessionUsecaseProvider).call(next.loginResponse!.data?['accessToken'], next.loginResponse!.data?['refreshToken'], next.loginResponse!.data?['user']);
       }
     });
 

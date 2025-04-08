@@ -27,3 +27,13 @@ final saveSessionUsecaseProvider = Provider<SaveSessionUsecase>((ref){
 
   return SaveSessionUsecase(repository);
 });
+
+final getSessionUsecaseProvider = Provider<GetSessionUsecase>((ref){
+  final repository = ref.read(authLocalRepositoryProvider);
+
+  return GetSessionUsecase(repository);
+});
+
+final sessionData = StateProvider<Map<dynamic, dynamic>?>((ref){
+  return null;
+});
