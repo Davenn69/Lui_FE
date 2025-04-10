@@ -6,7 +6,7 @@ class GetSessionUsecase {
 
   GetSessionUsecase(this.repository);
 
-  Future<SessionEntity?> execute() async {
-    return await repository.getSession();
+  Future<SessionEntity?> execute() {
+    return repository.getSession();
   } 
 }

@@ -5,18 +5,21 @@ import 'package:lui_fe/core/session/data/mappers/session_mapper.dart';
 
 class SessionRepositoryImpl implements SessionRepository{
 
-  final SessionLocalDataSource repository;
+  final SessionLocalDataSource localDataSource;
 
-  SessionRepositoryImpl(this.repository);
+  SessionRepositoryImpl(this.localDataSource);
+
+
 
   @override
   Future<void> saveSession(SessionEntity session) async {
-    await repository.saveSession(SessionMapper.toModel(session));
+    await localDataSource.saveSession(SessionMapper.toModel(session));
   }
   
   @override
   Future<SessionEntity?> getSession() async {
-    await repository.getSession();
+    final sessionModel = await localDataSource.getSession();
+    if (sessionModel == null) return null; // No session found => NULL
+    return SessionMapper.toEntity(sessionModel);
   }
-
 }
