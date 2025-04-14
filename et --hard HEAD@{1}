@@ -1,0 +1,23 @@
+[33m0a27792[m[33m ([m[1;36mHEAD -> [m[1;32mDaven/Login[m[33m)[m HEAD@{0}: commit: login function and session function done
+[33m0887b0e[m HEAD@{1}: commit: add local storage for session
+[33mc93100d[m[33m ([m[1;31morigin/Kevin-AuthFeature[m[33m)[m HEAD@{2}: checkout: moving from Davenn to Daven/Login
+[33me0ff5c6[m[33m ([m[1;31morigin/Davenn[m[33m, [m[1;32mDavenn[m[33m)[m HEAD@{3}: commit: Wallet and Detail screen done
+[33mffe7d98[m HEAD@{4}: commit: Dashboard, add expense & income, and statistic screen done
+[33m4f298af[m HEAD@{5}: commit: Dashboard screen done
+[33m1506de2[m HEAD@{6}: commit: Modify files and folders
+[33m651d719[m HEAD@{7}: commit: modify folders and files
+[33m9ac6ffc[m HEAD@{8}: commit: Login, Register, Getting started, and splash screen done
+[33m19be84e[m HEAD@{9}: commit: splash and getting_started screen done
+[33m3a731db[m HEAD@{10}: Branch: renamed refs/heads/main to refs/heads/Davenn
+[33m3a731db[m HEAD@{12}: commit: Modify folders
+[33md961786[m HEAD@{13}: checkout: moving from Davenn to main
+[33m56ac7cd[m HEAD@{14}: checkout: moving from main to Davenn
+[33md961786[m HEAD@{15}: pull origin main: Merge made by the 'ort' strategy.
+[33m56ac7cd[m HEAD@{16}: Branch: renamed refs/heads/Davenn to refs/heads/main
+[33m56ac7cd[m HEAD@{18}: commit: Add folders
+[33m3f75a0f[m HEAD@{19}: commit: Add folders
+[33m3664c49[m[33m ([m[1;31morigin/Kevin[m[33m)[m HEAD@{20}: Branch: renamed refs/heads/main to refs/heads/Davenn
+[33m3664c49[m[33m ([m[1;31morigin/Kevin[m[33m)[m HEAD@{22}: Branch: renamed refs/heads/Davenn to refs/heads/main
+[33m3664c49[m[33m ([m[1;31morigin/Kevin[m[33m)[m HEAD@{24}: Branch: renamed refs/heads/main to refs/heads/Davenn
+[33m3664c49[m[33m ([m[1;31morigin/Kevin[m[33m)[m HEAD@{26}: Branch: renamed refs/heads/master to refs/heads/main
+[33m3664c49[m[33m ([m[1;31morigin/Kevin[m[33m)[m HEAD@{28}: commit (initial): create file successfully

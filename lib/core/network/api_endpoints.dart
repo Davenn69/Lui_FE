@@ -3,5 +3,5 @@ class ApiEndpoints {
   static const String baseUrl = "http://192.168.1.9:3000/api";
   static const String register = "$baseUrl/auth/register";
   static const String login = "$baseUrl/auth/login";
-  
+  static const String getUser = "$baseUrl/user/getUser";
 }
