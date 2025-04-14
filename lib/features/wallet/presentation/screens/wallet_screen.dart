@@ -61,7 +61,7 @@ class WalletScreenState extends ConsumerState<WalletScreen>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: Color(0xFF429690),
+      backgroundColor: colors.primary,
       body: SafeArea(
         child: Column(
           children: <Widget>[

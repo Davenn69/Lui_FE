@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:lui_fe/core/session/data/models/session_model.dart';
+import 'package:lui_fe/core/session/presentation/providers/providers.dart';
+import 'package:lui_fe/core/session/presentation/providers/session_provider.dart';
+import 'package:lui_fe/features/auth/presentation/providers/auth_provider.dart';
 import 'package:lui_fe/features/auth/presentation/screens/register_screen.dart';
 import 'package:lui_fe/features/auth/presentation/screens/splash_screen.dart';
-import 'package:lui_fe/features/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:lui_fe/features/statistic/presentation/screens/statistic_screen.dart';
 
@@ -21,7 +23,9 @@ void main() async {
   final appDir = await getApplicationDocumentsDirectory();
 
   await Hive.initFlutter(appDir.path);
-  final collection = await BoxCollection.open("localStorage", {'sessionBox'}, path: appDir.path);
+
+  // Register Adapter
+  Hive.registerAdapter(SessionModelAdapter());
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

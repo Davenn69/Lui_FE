@@ -133,7 +133,7 @@ class AddExpenseScreenState extends ConsumerState<AddExpenseScreen>{
                                     suffixIcon: GestureDetector(onTap : (){amountController.text = "";}, child: Icon(Icons.delete_forever)),
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(8),
-                                      borderSide: BorderSide(color: Color(0xFF2A7C76))
+                                      borderSide: BorderSide(color: colors.secondary)
                                     ),
                                   ),
                                 )
@@ -165,7 +165,7 @@ class AddExpenseScreenState extends ConsumerState<AddExpenseScreen>{
                                     suffixIcon: Icon(Icons.calendar_month_outlined),
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(8),
-                                        borderSide: BorderSide(color: Color(0xFF2A7C76))
+                                        borderSide: BorderSide(color: colors.secondary)
                                     ),
                                   ),
                                 )
@@ -197,7 +197,7 @@ class AddExpenseScreenState extends ConsumerState<AddExpenseScreen>{
                                     suffixIcon: Icon(Icons.calendar_month_outlined),
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(8),
-                                        borderSide: BorderSide(color: Color(0xFF2A7C76))
+                                        borderSide: BorderSide(color: colors.secondary)
                                     ),
                                   ),
                                 )

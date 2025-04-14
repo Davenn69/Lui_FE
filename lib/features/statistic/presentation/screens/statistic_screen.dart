@@ -32,7 +32,7 @@ class StatisticScreenState extends ConsumerState<StatisticScreen>{
                         ToggleButtons(
                           borderRadius: BorderRadius.circular(8),
                             borderWidth: 0,
-                            fillColor: Color(0xFF429690),
+                            fillColor: colors.primary,
                             selectedColor: Colors.white,
                             isSelected: isSelected,
                             children: [
@@ -137,11 +137,11 @@ class StatisticScreenState extends ConsumerState<StatisticScreen>{
                                 FlSpot(11, 2.3),
                               ],
                               isCurved: true,
-                              color: Color(0xFF2A7C76),
+                              color: colors.secondary,
                               barWidth: 3,
                               belowBarData: BarAreaData(
                                 show: true,
-                                color: Color(0xFF2A7C76).withAlpha(20)
+                                color: colors.secondary.withAlpha(20)
                               ),
                               dotData: FlDotData(show: false)
                             )

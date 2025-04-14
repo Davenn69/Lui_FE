@@ -1,6 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:lui_fe/core/themes/theme.dart';
+import 'package:lui_fe/core/themes/color_theme.dart';
 
 class ShowDialog {
   static void showErrorDialog({

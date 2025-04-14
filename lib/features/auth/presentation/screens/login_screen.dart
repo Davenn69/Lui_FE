@@ -89,8 +89,8 @@ class LoginScreen extends ConsumerWidget{
                               width: 250,
                               decoration: BoxDecoration(
                                   gradient: LinearGradient(colors: [
-                                    Color(0xFF429690),
-                                    Color(0xFF2A7C76)
+                                    colors.primary,
+                                    colors.secondary
                                   ],
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter),

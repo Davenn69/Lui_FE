@@ -14,6 +14,7 @@ class DashboardScreen extends ConsumerStatefulWidget{
 
 class DashboardScreenState extends ConsumerState<DashboardScreen>{
 
+<<<<<<< HEAD
   //TODO
   // @override
   // void initState() {
@@ -22,6 +23,12 @@ class DashboardScreenState extends ConsumerState<DashboardScreen>{
   //     ref.read(dashboardProvider.notifier).getUser(userId);
   //   });
   // }
+=======
+  @override
+  void initState() {
+    super.initState();
+  }
+>>>>>>> 4c7a2ce52eb90d8d699ae11626bc66b53f0b1efe
 
   final List<Widget> _pages = [
     DashboardScreen(),
@@ -47,8 +54,8 @@ class DashboardScreenState extends ConsumerState<DashboardScreen>{
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40)),
                     gradient: LinearGradient(colors: [
-                      Color(0xFF429690),
-                      Color(0xFF2A7C76)
+                      colors.primary,
+                      colors.secondary
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight)

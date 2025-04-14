@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lui_fe/core/params/params.dart';
 import 'package:lui_fe/core/widgets/show_dialog.dart';
-import 'package:lui_fe/features/auth/presentation/providers/auth_provider.dart';
-import 'package:lui_fe/features/auth/presentation/widgets/register_widgets.dart';
 
 class RegisterScreen extends ConsumerStatefulWidget {
   const RegisterScreen({super.key});
@@ -45,8 +43,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     Text(
                       "Register",
                       style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold
                       ),
                     ),
                     SizedBox(height: 20),
@@ -54,10 +52,10 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                            "Name",
+                          "Name",
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold
                           ),
                         ),
                         showNameTextFormField(ref, nameController)
@@ -67,10 +65,10 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                            "Email",
+                          "Email",
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold
                           ),
                         ),
                         showEmailTextFormField(ref, emailController)
@@ -106,38 +104,38 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     ),
                   ],
                 ),
-                Consumer(
-                  builder: (context, ref, child) {
-                    final authState = ref.watch(authProvider);
-                    final authNotifier = ref.read(authProvider.notifier);
+                  Consumer(
+                    builder: (context, ref, child) {
+                      final authState = ref.watch(authProvider);
+                      final authNotifier = ref.read(authProvider.notifier);
 
-                    return Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 550),
-                        child: authState.isLoading 
-                          ? CircularProgressIndicator()
-                          : Container(
-                              width: 250,
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(colors: [
-                                    Color(0xFF429690),
-                                    Color(0xFF2A7C76)
-                                  ],
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter),
-                                  borderRadius: BorderRadius.circular(20)
-                              ),
-                              child: ElevatedButton(onPressed: (){
-                                if(formKey.currentState!.validate()){
-                                  final params = RegisterParams(
-                                    name: nameController.text,
-                                    email: emailController.text.trim(),
-                                    password: passwordController.text,
-                                  );
-                                  authNotifier.register(params);
-                                }
-                              }, child: Text("Register")),
+                      return Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 550),
+                          child: authState.isLoading
+                              ? CircularProgressIndicator()
+                              : Container(
+                            width: 250,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(colors: [
+                                  colors.primary,
+                                  colors.secondary
+                                ],
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter),
+                                borderRadius: BorderRadius.circular(20)
                             ),
+                            child: ElevatedButton(onPressed: (){
+                              if(formKey.currentState!.validate()){
+                                final params = RegisterParams(
+                                  name: nameController.text,
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text,
+                                );
+                                authNotifier.register(params);
+                              }
+                            }, child: Text("Register")),
+                          ),
                         ),
                       );
                     },

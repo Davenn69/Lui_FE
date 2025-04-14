@@ -68,8 +68,8 @@ class AddIncomeScreenState extends ConsumerState<AddIncomeScreen>{
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40)),
                       gradient: LinearGradient(colors: [
-                        Color(0xFF429690),
-                        Color(0xFF2A7C76)
+                        colors.primary,
+                        colors.secondary
                       ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight)
@@ -133,7 +133,7 @@ class AddIncomeScreenState extends ConsumerState<AddIncomeScreen>{
                                         suffixIcon: GestureDetector(onTap : (){amountController.text = "";}, child: Icon(Icons.delete_forever)),
                                         focusedBorder: OutlineInputBorder(
                                             borderRadius: BorderRadius.circular(8),
-                                            borderSide: BorderSide(color: Color(0xFF2A7C76))
+                                            borderSide: BorderSide(color: colors.secondary)
                                         ),
                                       ),
                                     )
@@ -165,7 +165,7 @@ class AddIncomeScreenState extends ConsumerState<AddIncomeScreen>{
                                         suffixIcon: Icon(Icons.calendar_month_outlined),
                                         focusedBorder: OutlineInputBorder(
                                             borderRadius: BorderRadius.circular(8),
-                                            borderSide: BorderSide(color: Color(0xFF2A7C76))
+                                            borderSide: BorderSide(color: colors.secondary)
                                         ),
                                       ),
                                     )
@@ -197,7 +197,7 @@ class AddIncomeScreenState extends ConsumerState<AddIncomeScreen>{
                                         suffixIcon: Icon(Icons.calendar_month_outlined),
                                         focusedBorder: OutlineInputBorder(
                                             borderRadius: BorderRadius.circular(8),
-                                            borderSide: BorderSide(color: Color(0xFF2A7C76))
+                                            borderSide: BorderSide(color: colors.secondary)
                                         ),
                                       ),
                                     )
@@ -216,8 +216,8 @@ class AddIncomeScreenState extends ConsumerState<AddIncomeScreen>{
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             gradient: LinearGradient(colors: [
-                              Color(0xFF429690),
-                              Color(0xFF2A7C76)
+                              colors.primary,
+                              colors.secondary
                             ],
                                 begin: Alignment.topCenter,
                                 end : Alignment.bottomCenter)

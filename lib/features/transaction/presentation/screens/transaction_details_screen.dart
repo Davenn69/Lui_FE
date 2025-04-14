@@ -8,7 +8,7 @@ class TransactionDetailsScreen extends ConsumerWidget{
   @override
   Widget build(BuildContext context, WidgetRef ref){
     return Scaffold(
-      backgroundColor: Color(0xFF429690),
+      backgroundColor: colors.primary,
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -250,7 +250,7 @@ class TransactionDetailsScreen extends ConsumerWidget{
                             height: 60,
                             decoration: BoxDecoration(
                               border: Border.all(
-                                color: Color(0xFF429690),
+                                color: colors.primary,
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(20)
@@ -262,7 +262,7 @@ class TransactionDetailsScreen extends ConsumerWidget{
                                 child: Text(
                                     "Download Receipt",
                                   style: TextStyle(
-                                    color: Color(0xFF429690)
+                                    color: colors.primary
                                   ),
                                 )
                             ),

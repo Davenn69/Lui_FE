@@ -20,18 +20,18 @@ class GettingStartedScreen extends StatelessWidget{
                 Padding(
                   padding: const EdgeInsets.only(top: 110),
                   child: Image.asset(
-                    "assets/images/person.png"
+                      "assets/images/person.png"
                   ),
                 )
               ],
             ),
             SizedBox(height: 5),
             Text(
-                "Spend Smarter",
+              "Spend Smarter",
               style: TextStyle(
-                color: Color(0xFF438883),
-                fontSize: 32,
-                fontWeight: FontWeight.bold
+                  color: Color(0xFF438883),
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold
               ),
             ),
             Text(
@@ -48,11 +48,11 @@ class GettingStartedScreen extends StatelessWidget{
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                     colors: [
-                      Color(0xFF429690),
-                      Color(0xFF2A7C76)
+                      colors.primary,
+                      colors.secondary
                     ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter
                 ),
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -61,29 +61,29 @@ class GettingStartedScreen extends StatelessWidget{
                     Navigator.of(context).push(NavigationService.navigationFromGettingToRegister());
                   },
                   child: Text(
-                    "Get Started"
+                      "Get Started"
                   )),
             ),
             SizedBox(height:10 ),
             RichText(
                 text: TextSpan(
-                  style: GoogleFonts.inter(fontSize: 12, color: Colors.black54),
-                  children: [
-                    TextSpan(
-                      text: "Already have an account? "
-                    ),
-                    TextSpan(
-                      text: "Log In",
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                        color: Color(0xFF2A7C76),
-                        fontWeight: FontWeight.bold
+                    style: GoogleFonts.inter(fontSize: 12, color: Colors.black54),
+                    children: [
+                      TextSpan(
+                          text: "Already have an account? "
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = (){
-                        Navigator.of(context).push(NavigationService.navigationFromGettingToLogin());
-                      }
-                    )
-                  ]
+                      TextSpan(
+                          text: "Log In",
+                          style: GoogleFonts.inter(
+                              fontSize: 14,
+                              color: colors.secondary,
+                              fontWeight: FontWeight.bold
+                          ),
+                          recognizer: TapGestureRecognizer()..onTap = (){
+                            Navigator.of(context).push(NavigationService.navigationFromGettingToLogin());
+                          }
+                      )
+                    ]
                 )
             )
           ],
