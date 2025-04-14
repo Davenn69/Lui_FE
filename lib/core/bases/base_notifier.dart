@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 abstract class BaseNotifier extends ChangeNotifier{
   bool _isLoading = false;
@@ -27,9 +28,11 @@ abstract class BaseNotifier extends ChangeNotifier{
     super.dispose();
   }
 
+  FutureOr<void> init();
+
   bool get isLoading => _isLoading;
   bool get isInitialized => _isInitialized;
-  bool get isDisposed => _isDisposed;
+  bool get showOverlay => _showOverlay;
 
   set isLoading(bool value){
     _isLoading = value;
